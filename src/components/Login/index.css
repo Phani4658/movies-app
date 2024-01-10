@@ -1,0 +1,98 @@
+.login-page {
+  background-color: #131313;
+  height: 100vh;
+  padding: 32px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.login-heading {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.login-input {
+  padding: 8px 0 8px 10px;
+  height: 40px;
+  width: 100%;
+  background-color: #333333;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+}
+
+.login-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.login-button {
+  border-radius: 4px;
+  background: #e50914;
+  width: 100%;
+  border: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 32px;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #e50914;
+  margin: 0;
+  margin-top: 12px;
+}
+
+.login-card {
+  margin-top: 125px;
+}
+
+@media screen and (min-width: 768px) {
+  .login-page {
+    background: url('https://res.cloudinary.com/dv0oedkxm/image/upload/v1686423532/Movies-A-Netflix-clone/LoginBackground_vpyjar.png');
+    background-size: cover;
+    padding: 48px 105px;
+  }
+
+  .login-card {
+    max-width: 456px;
+    border-radius: 8px;
+    background: #0c0b1090;
+    padding:64px 48px;
+    margin: 0 auto;
+    margin-top: 192px;
+  }
+
+  .login-heading{
+      text-align: center;
+      margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .login-page {
+    background: url('https://res.cloudinary.com/dv0oedkxm/image/upload/v1686423532/Movies-A-Netflix-clone/LoginBackground_vpyjar.png');
+    background-size: cover;
+    padding: 48px 165px;
+  }
+
+  .login-logo {
+    width: 12%;
+    max-width: 180px;
+  }
+}
