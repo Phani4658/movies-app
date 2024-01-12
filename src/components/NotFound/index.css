@@ -1,0 +1,63 @@
+.not-found-container {
+  background: url('https://res.cloudinary.com/dv0oedkxm/image/upload/v1686748110/Movies-A-Netflix-clone/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_ht1dpu.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -480px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.not-found-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: 'Hanken Grotesk';
+}
+
+.not-found-content > h1 {
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0;
+}
+
+.not-found-content > p {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.not-found-content  button {
+  padding: 8px 24px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #171f46;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-container {
+    background-position: center;
+  }
+
+  .not-found-content > h1 {
+    font-size: 96px;
+  }
+
+  .not-found-content > p {
+    font-size: 24px;
+  }
+
+  .not-found-content > button {
+    padding: 12px 24px;
+  }
+}

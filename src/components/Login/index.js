@@ -75,11 +75,11 @@ class Login extends Component {
               />
             </div>
             <div className="input-container no-margin-bottom">
-              <label htmlFor="username" className="login-label">
+              <label htmlFor="password" className="login-label">
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 id="password"
                 value={password}
                 onChange={this.onChangePassword}
