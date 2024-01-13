@@ -4,6 +4,8 @@ import Cookies from 'js-cookie'
 import Navbar from '../Navbar'
 import './index.css'
 import Footer from '../Footer'
+import FailureView from '../FailureView'
+import LoadingView from '../LoadingView'
 
 const apiStatusConstants = {
   success: 'SUCCESS',
@@ -13,14 +15,14 @@ const apiStatusConstants = {
 
 class PopularMovies extends Component {
   state = {
-    apiStatus: apiStatusConstants.success,
+    apiStatus: apiStatusConstants.failure,
     popularMovies: [],
   }
 
   componentDidMount = () => {
     this.getPopularMovies()
   }
-  
+
   getPopularMovies = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
@@ -44,7 +46,7 @@ class PopularMovies extends Component {
         }))
         this.setState({apiStatus: apiStatusConstants.success, popularMovies})
       } else {
-        this.setState({apiStatus: apiStatusConstants.inProgress})
+        this.setState({apiStatus: apiStatusConstants.failure})
       }
     } catch (e) {
       this.setState({apiStatus: apiStatusConstants.failure})
@@ -64,16 +66,34 @@ class PopularMovies extends Component {
             </li>
           ))}
         </ul>
-        <Footer />
       </>
     )
   }
 
+  renderFinalView = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return (
+          <FailureView isPopularPage getPopularMovies={this.getPopularMovies} />
+        )
+      case apiStatusConstants.inProgress:
+        return <LoadingView />
+      default:
+        return null
+    }
+  }
+
   render() {
+    const {apiStatus} = this.state
     return (
       <div>
         <Navbar isPopular />
-        {this.renderSuccessView()}
+        {this.renderFinalView()}
+        {apiStatus === apiStatusConstants.success && <Footer />}
       </div>
     )
   }
