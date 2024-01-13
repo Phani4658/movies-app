@@ -1,0 +1,56 @@
+.popular-movies-container {
+  padding: 24px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 13px;
+  column-gap: 16px;
+}
+
+.movie-card {
+  width: 30%;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.movie-card img {
+  width: 100%;
+  flex-grow: 1;
+  height: 100px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .movie-card {
+      max-width: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .popular-movies-container {
+    padding: 24px 100px;
+    row-gap: 24px;
+    column-gap: 30px;
+    justify-content: flex-start;
+  }
+
+  .movie-card {
+    flex-grow: 1;
+    width: 28%;
+    height: 100%;
+  }
+
+  .movie-card img {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .popular-movies-container {
+    padding: 32px 165px;
+  }
+
+  .movie-card {
+    width: 21%;
+    max-width: 23%;
+  }
+}
