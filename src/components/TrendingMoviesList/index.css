@@ -1,0 +1,44 @@
+.trending-now-heading {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.movies-list {
+  display: flex;
+  gap: 13px;
+}
+
+.backdrop-image {
+  margin: 0px 10px;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.movie-item {
+  border-radius: 8px;
+  margin-left: 18px;
+}
+
+.trending-movies-container{
+    display: flex;
+    width: 100%;
+}
+
+
+.slick-container {
+  width: 80%;
+  max-width: 1100px;
+  margin-top: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .trending-now-heading {
+    font-size: 24px;
+  }      
+}

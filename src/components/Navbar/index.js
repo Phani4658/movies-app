@@ -1,5 +1,4 @@
 import './index.css'
-import {Component} from 'react'
 import {MdPlaylistPlay} from 'react-icons/md'
 import {HiOutlineSearch} from 'react-icons/hi'
 import {NavLink, Link} from 'react-router-dom'
@@ -13,18 +12,18 @@ const Navbar = props => {
           src="https://res.cloudinary.com/dv0oedkxm/image/upload/v1686423528/Movies-A-Netflix-clone/MoviesLogo_ayvbyq.svg"
           alt="website-logo"
         />
-        <div className="laptop-view left-nav-links">
+        <ul className="laptop-view left-nav-links">
           <NavLink to="/" className={`link ${isHome ? 'bold' : null}`}>
-            <p className="nav-link">Home</p>
+            <li className="nav-link">Home</li>
           </NavLink>
           <NavLink
             activeClassName="bold"
             to="/popular"
             className={`link ${!isHome ? 'bold' : null}`}
           >
-            <p className="nav-link">Popular</p>
+            <li className="nav-link">Popular</li>
           </NavLink>
-        </div>
+        </ul>
       </div>
       <div className="right-part">
         <Link to="/search">

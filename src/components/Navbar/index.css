@@ -3,7 +3,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#13131330;
+  background-color: #13131330;
   font-family: 'Hanken Grotesk';
 }
 .left-part > img {
@@ -29,8 +29,8 @@ nav {
   gap: 48px;
 }
 
-.transparent {
-  
+.left-nav-links{
+    list-style-type: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -72,6 +72,6 @@ nav {
 
 @media screen and (min-width: 1024px) {
   nav {
-    padding: 32 165px;
+    padding: 32px 165px;
   }
 }
