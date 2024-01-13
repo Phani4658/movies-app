@@ -1,3 +1,5 @@
-const PopularMovies = () => <h1>Popular Route</h1>
+import Navbar from '../Navbar'
+
+const PopularMovies = () => <Navbar />
 
 export default PopularMovies
