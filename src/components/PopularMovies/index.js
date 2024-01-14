@@ -93,7 +93,7 @@ class PopularMovies extends Component {
       <div>
         <Navbar isPopular />
         {this.renderFinalView()}
-        {apiStatus === apiStatusConstants.success && <Footer />}
+        <Footer />
       </div>
     )
   }

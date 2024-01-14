@@ -33,6 +33,12 @@ nav {
   gap: 48px;
 }
 
+.nav-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
 a {
   text-decoration: none;
 }

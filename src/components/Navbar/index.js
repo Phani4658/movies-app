@@ -26,7 +26,7 @@ const Navbar = props => {
           <Link to="/">
             <img
               src="https://res.cloudinary.com/dv0oedkxm/image/upload/v1686423528/Movies-A-Netflix-clone/MoviesLogo_ayvbyq.svg"
-              alt="website-logo"
+              alt="website logo"
             />
           </Link>
           <ul className="laptop-view left-nav-links">
@@ -48,7 +48,13 @@ const Navbar = props => {
         <div className="right-part">
           {!isSearchPage && (
             <Link to="/search">
-              <HiOutlineSearch testid="searchButton" className="nav-icons" />
+              <button
+                type="button"
+                className="nav-button"
+                testid="searchButton"
+              >
+                <HiOutlineSearch className="nav-icons" />
+              </button>
             </Link>
           )}
           {isSearchPage && (
@@ -58,11 +64,14 @@ const Navbar = props => {
                 placeholder="Search"
                 onChange={onChangeSearchValue}
               />
-              <HiOutlineSearch
-                className="search-page-icon"
+              <button
+                type="button"
+                className="nav-button"
                 testid="searchButton"
                 onClick={getSearchResults}
-              />
+              >
+                <HiOutlineSearch className="search-page-icon" />
+              </button>
             </div>
           )}
           <MdPlaylistPlay
@@ -95,10 +104,12 @@ const Navbar = props => {
               <span>Account</span>
             </Link>
           </li>
-          <IoCloseCircle
-            className="close-icon"
-            onClick={() => updateShowMobileNav(false)}
-          />
+          <li>
+            <IoCloseCircle
+              className="close-icon"
+              onClick={() => updateShowMobileNav(false)}
+            />
+          </li>
         </ul>
       )}
     </nav>

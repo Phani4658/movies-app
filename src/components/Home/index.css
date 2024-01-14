@@ -1,6 +1,9 @@
 header {
   position: relative;
-  height: 600px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
 }
 
 header > * {
@@ -14,21 +17,87 @@ header > img {
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 605px;
+  background-color: lightgray 50%;
+  height: 100%;
+}
+
+.transparent-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff10 40%, #00000050 60%);
+  z-index: 2;
+}
+
+.header-para {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.banner-details {
+  padding: 0 32px;
+  font-family: 'Hanken Grotesk';
+  margin-top: auto;
+}
+
+.header-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 .movies-section {
   padding: 24px 32px;
 }
 
+header .home-loader-container,
+header .failure-view {
+  min-height: 412px;
+  height: 100%;
+  margin: 0 32px;
+}
+
 @media screen and (min-width: 767px) {
   .movies-section {
     padding: 24px 100px;
+  }
+
+  header {
+    min-height: 605px;
+  }
+
+  .banner-details {
+    padding: 0 100px;
+  }
+
+  .header-para {
+    font-size: 20px;
+    width: 50%;
+  }
+
+  header .home-loader-container,
+  header .failure-view {
+    min-height: 456px;
+    margin: 0 100px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .movies-section {
     padding: 32px 165px;
+  }
+
+  .banner-details {
+    padding: 0 165px;
+  }
+  header .home-loader-container,
+  header .failure-view {
+    margin: 0 165px;
   }
 }

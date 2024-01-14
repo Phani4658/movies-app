@@ -1,46 +1,11 @@
 import {Component} from 'react'
-import Slider from 'react-slick'
 import Cookies from 'js-cookie'
-import {Link} from 'react-router-dom'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import './index.css'
 
 const apiStatusConstants = {
   success: 'SUCCESS',
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
-}
-
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-  ],
 }
 
 class TrendingMoviesList extends Component {
@@ -54,7 +19,7 @@ class TrendingMoviesList extends Component {
   }
 
   fetchTrendingMovies = async () => {
-    this.setState({apiStatus: apiStatusConstants.failure})
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = 'https://apis.ccbp.in/movies-app/trending-movies'
     const options = {
@@ -83,31 +48,27 @@ class TrendingMoviesList extends Component {
     }
   }
 
-  renderSuccessView = () => {
-    const {trendingMovies} = this.state
+  renderFinalView = () => {
+    const {apiStatus, trendingMovies} = this.state
+    const {renderSuccessView, renderFailureView, renderLoadingView} = this.props
 
-    return (
-      <Slider {...settings}>
-        {trendingMovies.map(movieDetails => (
-          <div className="slick-item">
-            <Link to={`/movies/${movieDetails.id}`}>
-              <img
-                src={movieDetails.backdropPath}
-                alt="movie-poster"
-                className="backdrop-image"
-              />
-            </Link>
-          </div>
-        ))}
-      </Slider>
-    )
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return renderSuccessView(trendingMovies)
+      case apiStatusConstants.failure:
+        return renderFailureView(this.fetchTrendingMovies)
+      case apiStatusConstants.inProgress:
+        return renderLoadingView()
+      default:
+        return null
+    }
   }
 
   render() {
     return (
       <section>
         <h2 className="trending-now-heading">Trending Now</h2>
-        {this.renderSuccessView()}
+        {this.renderFinalView()}
       </section>
     )
   }
