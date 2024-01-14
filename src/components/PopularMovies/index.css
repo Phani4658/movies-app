@@ -8,21 +8,18 @@
 
 .movie-card {
   width: 30%;
-  height: 100px;
   border-radius: 8px;
+  flex-grow: 1;
 }
 
 .movie-card img {
   width: 100%;
   flex-grow: 1;
-  height: 100px;
   border-radius: 8px;
 }
 
 @media screen and (max-width: 767px) {
-  .movie-card {
-      max-width: 100px;
-  }
+  
 }
 
 @media screen and (min-width: 768px) {

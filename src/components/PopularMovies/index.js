@@ -54,7 +54,7 @@ class PopularMovies extends Component {
   }
 
   renderSuccessView = () => {
-    const {popularMovies, isMobile} = this.state
+    const {popularMovies} = this.state
     return (
       <>
         <ul className="popular-movies-container">

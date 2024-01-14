@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import Slider from 'react-slick-slider'
+import Slider from 'react-slick'
 import Cookies from 'js-cookie'
 import {Link} from 'react-router-dom'
 import 'slick-carousel/slick/slick.css'

@@ -1,21 +1,29 @@
 import './index.css'
 
 const FailureView = props => {
-  const {getFailureView, isPopularPage, searchInputValue} = props
-  const imageUrl = isPopularPage
+  const {
+    getPopularMovies,
+    isSearchEmpty,
+    searchValue,
+    isPopularPage,
+    getSearchResults,
+  } = props
+  const imageUrl = !isSearchEmpty
     ? 'https://res.cloudinary.com/dv0oedkxm/image/upload/v1694082454/Background-Complete_ggb5ru.png'
     : 'https://res.cloudinary.com/dv0oedkxm/image/upload/v1705178761/NoSearchValue_shlxe9.png'
-
-  const description = isPopularPage
+  console.log(isSearchEmpty, imageUrl)
+  const description = !isSearchEmpty
     ? 'Something went wrong. Please try again'
-    : `Your search for ${searchInputValue} did not find any matches.`
+    : `Your search for ${searchValue} did not find any matches.`
   return (
     <div className="failure-view-container">
       <img src={imageUrl} alt="failureView" className="failure-view-image" />
       <p className="failure-description">{description}</p>
-      {isPopularPage && (
+      {!isSearchEmpty && (
         <button
-          onClick={getFailureView}
+          onClick={() =>
+            isPopularPage ? getPopularMovies() : getSearchResults()
+          }
           type="button"
           className="try-again-button"
         >

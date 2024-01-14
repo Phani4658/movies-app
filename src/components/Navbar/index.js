@@ -6,8 +6,19 @@ import {IoCloseCircle} from 'react-icons/io5'
 import {Link} from 'react-router-dom'
 
 const Navbar = props => {
-  const {isHome, isPopular, isAccount} = props
+  const {
+    isHome,
+    isPopular,
+    isAccount,
+    isSearchPage,
+    updateSearchValue,
+    getSearchResults,
+  } = props
   const [showMobileNav, updateShowMobileNav] = useState(false)
+
+  const onChangeSearchValue = event => {
+    updateSearchValue(event.target.value)
+  }
   return (
     <nav>
       <div className="top-part">
@@ -26,9 +37,8 @@ const Navbar = props => {
             </li>
             <li className="nav-link">
               <Link
-                activeClassName="bold"
                 to="/popular"
-                className={`link ${!isHome ? 'bold' : null}`}
+                className={`link ${isPopular ? 'bold' : null}`}
               >
                 <span>Popular</span>
               </Link>
@@ -36,9 +46,25 @@ const Navbar = props => {
           </ul>
         </div>
         <div className="right-part">
-          <Link to="/search">
-            <HiOutlineSearch testid="searchButton" className="nav-icons" />
-          </Link>
+          {!isSearchPage && (
+            <Link to="/search">
+              <HiOutlineSearch testid="searchButton" className="nav-icons" />
+            </Link>
+          )}
+          {isSearchPage && (
+            <div className="search-container">
+              <input
+                type="search"
+                placeholder="Search"
+                onChange={onChangeSearchValue}
+              />
+              <HiOutlineSearch
+                className="search-page-icon"
+                testid="searchButton"
+                onClick={getSearchResults}
+              />
+            </div>
+          )}
           <MdPlaylistPlay
             className="nav-icons mobile-view"
             onClick={() => updateShowMobileNav(true)}
