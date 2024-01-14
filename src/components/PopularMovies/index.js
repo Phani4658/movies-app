@@ -88,7 +88,6 @@ class PopularMovies extends Component {
   }
 
   render() {
-    const {apiStatus} = this.state
     return (
       <div>
         <Navbar isPopular />

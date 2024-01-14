@@ -19,8 +19,11 @@ class Login extends Component {
   }
 
   onSuccessfulLogin = jwtToken => {
+    const {username, password} = this.state
     const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {expires: 30})
+    Cookies.set('username', username, {expires: 30})
+    Cookies.set('password', password, {expires: 30})
     history.replace('/')
   }
 
@@ -61,7 +64,11 @@ class Login extends Component {
         />
         <div className="login-card">
           <h2 className="login-heading">Login</h2>
-          <form onSubmit={this.loginUser}>
+          <form
+            onSubmit={event => {
+              this.loginUser(event)
+            }}
+          >
             <div className="input-container">
               <label htmlFor="username" className="login-label">
                 Username
