@@ -6,6 +6,7 @@ import FailureView from '../FailureView'
 import LoadingView from '../LoadingView'
 import './index.css'
 import MovieCard from '../MovieCard'
+import Footer from '../Footer'
 
 const apiStatusConstants = {
   success: 'SUCCESS',
@@ -20,7 +21,7 @@ class MovieDetails extends Component {
     movieDetails: {},
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.getMovieDetails()
   }
 
@@ -233,6 +234,7 @@ class MovieDetails extends Component {
           {apiStatus === apiStatusConstants.success && this.renderHeaderView()}
         </header>
         {this.renderFinalView()}
+        <Footer />
       </>
     )
   }
