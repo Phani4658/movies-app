@@ -7,7 +7,7 @@
 .account-details-container {
   background-color: #fff;
   padding: 32px;
-  flex-grow: 1;
+  height: 74vh;
 }
 
 .account-heading {

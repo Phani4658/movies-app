@@ -1,17 +1,16 @@
-header {
+.home-header {
   position: relative;
   min-height: 460px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 32px;
 }
 
-header > * {
+.home-header > * {
   position: relative;
   z-index: 3;
 }
 
-header > img {
+.home-header > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,11 +26,11 @@ header > img {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, #ffffff10 40%, #00000050 60%);
+  background: linear-gradient(to bottom, #ffffff10 80%, #00000080 30%);
   z-index: 2;
 }
 
-.header-para {
+.home-header-para {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -40,12 +39,13 @@ header > img {
 }
 
 .banner-details {
-  padding: 0 32px;
+  padding: 32px 32px;
   font-family: 'Hanken Grotesk';
+  background: linear-gradient(to bottom, transparent , #181818);
   margin-top: auto;
 }
 
-.header-title {
+.home-header-title {
   font-size: 36px;
   font-weight: 600;
   margin: 0;
@@ -56,8 +56,8 @@ header > img {
   padding: 24px 32px;
 }
 
-header .home-loader-container,
-header .failure-view {
+.home-header .home-loader-container,
+.home-header .failure-view {
   min-height: 412px;
   height: 100%;
   margin: 0 32px;
@@ -68,21 +68,21 @@ header .failure-view {
     padding: 24px 100px;
   }
 
-  header {
+  .home-header {
     min-height: 605px;
   }
 
   .banner-details {
-    padding: 0 100px;
+    padding: 32px 100px;
   }
 
-  .header-para {
+  .home-header-para {
     font-size: 20px;
-    width: 50%;
+    width: 80%;
   }
 
-  header .home-loader-container,
-  header .failure-view {
+  .home-header .home-loader-container,
+  .home-header .failure-view {
     min-height: 456px;
     margin: 0 100px;
   }
@@ -94,10 +94,13 @@ header .failure-view {
   }
 
   .banner-details {
-    padding: 0 165px;
+    padding: 32px 165px;
   }
-  header .home-loader-container,
-  header .failure-view {
+  .home-header .home-loader-container,
+  .home-header .failure-view {
     margin: 0 165px;
+  }
+  .home-header-para{
+      width: 60%;
   }
 }

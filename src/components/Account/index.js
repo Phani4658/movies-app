@@ -16,10 +16,10 @@ const Account = props => {
   const maskedPassword = '*'.repeat(password.length)
 
   return (
-    <div className="account-page">
+    <>
       <Navbar />
       <div className="account-details-container">
-        <h2 className="account-heading">Account</h2>
+        <h1 className="account-heading">Account</h1>
         <hr />
         <div className="membership-details">
           <p className="account-detail-heading">Member ship</p>
@@ -48,7 +48,7 @@ const Account = props => {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
 export default withRouter(Account)

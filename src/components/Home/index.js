@@ -164,10 +164,9 @@ class Home extends Component {
     return (
       <>
         <img src={posterPath} alt={title} />
-        <div className="transparent-gradient" />
         <div className="banner-details">
-          <h2 className="header-title">{title}</h2>
-          <p className="header-para">{overview}</p>
+          <h2 className="home-header-title">{title}</h2>
+          <p className="home-header-para">{overview}</p>
           <button type="button" className="try-again-button">
             Play
           </button>
@@ -179,7 +178,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <header>
+        <header className="home-header">
           <Navbar isHome />
           {this.renderHeaderFinalView()}
         </header>
