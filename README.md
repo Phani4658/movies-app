@@ -7,7 +7,7 @@ The **Movies App** is a React-based project that demonstrates various concepts l
 ## Technologies Used
 - Frontend: React, React Router
 - Styling: CSS, Figma for design
-- Authentication: React Context API
+- State Management: React Context API
 - Date Formatting: date-fns
 - Third-party Libraries: React Slick (for carousel functionality)
 
