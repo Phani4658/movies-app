@@ -160,10 +160,10 @@ class Home extends Component {
     const randomMovie =
       originalMovies[Math.floor(Math.random() * originalMovies.length)]
 
-    const {posterPath, title, overview} = randomMovie
+    const {backdropPath, title, overview} = randomMovie
     return (
       <>
-        <img src={posterPath} alt={title} />
+        <img src={backdropPath} alt={title} />
         <div className="banner-details">
           <h2 className="home-header-title">{title}</h2>
           <p className="home-header-para">{overview}</p>

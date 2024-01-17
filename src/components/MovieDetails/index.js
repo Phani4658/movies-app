@@ -25,6 +25,18 @@ class MovieDetails extends Component {
     this.getMovieDetails()
   }
 
+  componentDidUpdate(prevProps) {
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+
+    // Check if the ID in the URL has changed
+    if (id !== prevProps.match.params.id) {
+      // If the ID has changed, make a new fetch call
+      this.getMovieDetails()
+    }
+  }
+
   getFormattedData = data => ({
     adult: data.adult,
     backdropPath: data.backdrop_path,
@@ -48,6 +60,7 @@ class MovieDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/movies-app/movies/${id}`
     const options = {
@@ -68,6 +81,7 @@ class MovieDetails extends Component {
           posterPath: movie.poster_path,
           title: movie.title,
         }))
+        console.log(movieDetails)
         this.setState({
           movieDetails,
           similarMovies,
